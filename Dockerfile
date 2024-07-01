@@ -33,6 +33,7 @@ RUN mix local.hex --force && \
 
 # set build ENV
 ENV MIX_ENV="prod"
+ENV ERL_FLAGS="+JMsingle true"
 
 # install mix dependencies
 COPY mix.exs mix.lock ./
@@ -83,6 +84,7 @@ RUN chown nobody /app
 
 # set runner ENV
 ENV MIX_ENV="prod"
+ENV ERL_FLAGS="+JMsingle true"
 
 # Only copy the final release from the build stage
 COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/kemiskinan ./
