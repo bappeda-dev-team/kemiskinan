@@ -1,0 +1,53 @@
+<.header>
+  Data Penduduk
+  <:actions>
+    <.link patch={~p"/penduduks/new"}>
+      <.button>Tambah data penduduk</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table
+  id="penduduks"
+  rows={@streams.penduduks}
+  row_click={fn {_id, penduduk} -> JS.navigate(~p"/penduduks/#{penduduk}") end}
+>
+  <:col :let={{_id, penduduk}} label="Kode unik"><%= penduduk.kode_unik %></:col>
+  <:col :let={{_id, penduduk}} label="NIK"><%= penduduk.nik %></:col>
+  <:col :let={{_id, penduduk}} label="Nama"><%= penduduk.nama %></:col>
+  <:col :let={{_id, penduduk}} label="Tanggal lahir"><%= penduduk.tanggal_lahir %></:col>
+  <:col :let={{_id, penduduk}} label="Jenis kelamin"><%= penduduk.jenis_kelamin %></:col>
+  <:col :let={{_id, penduduk}} label="Kota/kab"><%= penduduk.kota_kab %></:col>
+  <:col :let={{_id, penduduk}} label="Kecamatan"><%= penduduk.kecamatan %></:col>
+  <:col :let={{_id, penduduk}} label="Desa/kelurahan"><%= penduduk.kelurahan %></:col>
+  <:action :let={{_id, penduduk}}>
+    <div class="sr-only">
+      <.link navigate={~p"/penduduks/#{penduduk}"}>Show</.link>
+    </div>
+    <.link patch={~p"/penduduks/#{penduduk}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={{id, penduduk}}>
+    <.link
+      phx-click={JS.push("delete", value: %{id: penduduk.id}) |> hide("##{id}")}
+      data-confirm="Are you sure?"
+    >
+      Delete
+    </.link>
+  </:action>
+</.table>
+
+<.modal
+  :if={@live_action in [:new, :edit]}
+  id="penduduk-modal"
+  show
+  on_cancel={JS.patch(~p"/penduduks")}
+>
+  <.live_component
+    module={KemiskinanWeb.PendudukLive.FormComponent}
+    id={@penduduk.id || :new}
+    title={@page_title}
+    action={@live_action}
+    penduduk={@penduduk}
+    patch={~p"/penduduks"}
+  />
+</.modal>
