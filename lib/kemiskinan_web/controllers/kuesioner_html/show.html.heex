@@ -1,0 +1,17 @@
+<.header>
+  Kuesioner <%= @kuesioner.id %>
+  <:subtitle>This is a kuesioner record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/kuesioners/#{@kuesioner}/edit"}>
+      <.button>Edit kuesioner</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Jenis"><%= @kuesioner.jenis %></:item>
+  <:item title="Penyedia"><%= @kuesioner.penyedia %></:item>
+  <:item title="Tahun"><%= @kuesioner.tahun %></:item>
+</.list>
+
+<.back navigate={~p"/kuesioners"}>Back to kuesioners</.back>
