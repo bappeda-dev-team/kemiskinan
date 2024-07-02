@@ -39,6 +39,15 @@ defmodule Kemiskinan.Penduduks.Penduduk do
       :kota_kab
     ])
     |> validate_length(:nik, is: 16)
+    |> unique_constraint(:nik)
     |> validate_inclusion(:jenis_kelamin, ["Laki-laki", "Perempuan"])
+    |> generate_kode_unik(:kode_unik)
+  end
+
+  defp generate_kode_unik(changeset, key) do
+    case get_field(changeset, key) do
+      nil -> put_change(changeset, key, Ecto.UUID.generate())
+      _ -> changeset
+    end
   end
 end
