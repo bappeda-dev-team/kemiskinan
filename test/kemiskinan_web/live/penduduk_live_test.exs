@@ -4,9 +4,36 @@ defmodule KemiskinanWeb.PendudukLiveTest do
   import Phoenix.LiveViewTest
   import Kemiskinan.PenduduksFixtures
 
-  @create_attrs %{kode_unik: "some kode_unik", nik: "some nik", nama: "some nama", tanggal_lahir: "2024-06-30", jenis_kelamin: "some jenis_kelamin", kelurahan: "some kelurahan", kecamatan: "some kecamatan", kota_kab: "some kota_kab"}
-  @update_attrs %{kode_unik: "some updated kode_unik", nik: "some updated nik", nama: "some updated nama", tanggal_lahir: "2024-07-01", jenis_kelamin: "some updated jenis_kelamin", kelurahan: "some updated kelurahan", kecamatan: "some updated kecamatan", kota_kab: "some updated kota_kab"}
-  @invalid_attrs %{kode_unik: nil, nik: nil, nama: nil, tanggal_lahir: nil, jenis_kelamin: nil, kelurahan: nil, kecamatan: nil, kota_kab: nil}
+  @create_attrs %{
+    kode_unik: "some kode_unik",
+    nik: "some nik",
+    nama: "some nama",
+    tanggal_lahir: "2024-06-30",
+    jenis_kelamin: "some jenis_kelamin",
+    kelurahan: "some kelurahan",
+    kecamatan: "some kecamatan",
+    kota_kab: "some kota_kab"
+  }
+  @update_attrs %{
+    kode_unik: "some updated kode_unik",
+    nik: "some updated nik",
+    nama: "some updated nama",
+    tanggal_lahir: "2024-07-01",
+    jenis_kelamin: "some updated jenis_kelamin",
+    kelurahan: "some updated kelurahan",
+    kecamatan: "some updated kecamatan",
+    kota_kab: "some updated kota_kab"
+  }
+  @invalid_attrs %{
+    kode_unik: nil,
+    nik: nil,
+    nama: nil,
+    tanggal_lahir: nil,
+    jenis_kelamin: nil,
+    kelurahan: nil,
+    kecamatan: nil,
+    kota_kab: nil
+  }
 
   defp create_penduduk(_) do
     penduduk = penduduk_fixture()
