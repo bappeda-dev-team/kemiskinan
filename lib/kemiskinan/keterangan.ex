@@ -101,4 +101,100 @@ defmodule Kemiskinan.Keterangan do
   def change_kuesioner(%Kuesioner{} = kuesioner, attrs \\ %{}) do
     Kuesioner.changeset(kuesioner, attrs)
   end
+
+  alias Kemiskinan.Keterangan.Pertanyaan
+
+  @doc """
+  Returns the list of pertanyaans.
+
+  ## Examples
+
+      iex> list_pertanyaans()
+      [%Pertanyaan{}, ...]
+
+  """
+  def list_pertanyaans do
+    Repo.all(Pertanyaan)
+  end
+
+  @doc """
+  Gets a single pertanyaan.
+
+  Raises `Ecto.NoResultsError` if the Pertanyaan does not exist.
+
+  ## Examples
+
+      iex> get_pertanyaan!(123)
+      %Pertanyaan{}
+
+      iex> get_pertanyaan!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_pertanyaan!(id), do: Repo.get!(Pertanyaan, id)
+
+  @doc """
+  Creates a pertanyaan.
+
+  ## Examples
+
+      iex> create_pertanyaan(%{field: value})
+      {:ok, %Pertanyaan{}}
+
+      iex> create_pertanyaan(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_pertanyaan(attrs \\ %{}) do
+    %Pertanyaan{}
+    |> Pertanyaan.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a pertanyaan.
+
+  ## Examples
+
+      iex> update_pertanyaan(pertanyaan, %{field: new_value})
+      {:ok, %Pertanyaan{}}
+
+      iex> update_pertanyaan(pertanyaan, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_pertanyaan(%Pertanyaan{} = pertanyaan, attrs) do
+    pertanyaan
+    |> Pertanyaan.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a pertanyaan.
+
+  ## Examples
+
+      iex> delete_pertanyaan(pertanyaan)
+      {:ok, %Pertanyaan{}}
+
+      iex> delete_pertanyaan(pertanyaan)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_pertanyaan(%Pertanyaan{} = pertanyaan) do
+    Repo.delete(pertanyaan)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking pertanyaan changes.
+
+  ## Examples
+
+      iex> change_pertanyaan(pertanyaan)
+      %Ecto.Changeset{data: %Pertanyaan{}}
+
+  """
+  def change_pertanyaan(%Pertanyaan{} = pertanyaan, attrs \\ %{}) do
+    Pertanyaan.changeset(pertanyaan, attrs)
+  end
 end

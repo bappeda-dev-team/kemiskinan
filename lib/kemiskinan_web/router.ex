@@ -27,6 +27,7 @@ defmodule KemiskinanWeb.Router do
     live "/penduduks/:id/show/edit", PendudukLive.Show, :edit
 
     resources "/kuesioners", KuesionerController
+    resources "/pertanyaans", PertanyaanController
   end
 
   # Other scopes may use custom stacks.

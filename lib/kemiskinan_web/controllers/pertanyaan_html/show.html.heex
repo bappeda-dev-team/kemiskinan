@@ -1,0 +1,17 @@
+<.header>
+  Pertanyaan <%= @pertanyaan.id %>
+  <:subtitle>This is a pertanyaan record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/pertanyaans/#{@pertanyaan}/edit"}>
+      <.button>Edit pertanyaan</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Pertanyaan"><%= @pertanyaan.pertanyaan %></:item>
+  <:item title="Konsep"><%= @pertanyaan.konsep %></:item>
+  <:item title="Metodologi"><%= @pertanyaan.metodologi %></:item>
+</.list>
+
+<.back navigate={~p"/pertanyaans"}>Back to pertanyaans</.back>
