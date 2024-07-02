@@ -11,6 +11,7 @@ defmodule Kemiskinan.Penduduks.Penduduk do
     field :kelurahan, :string
     field :kecamatan, :string
     field :kota_kab, :string
+    field :nokk, :string
 
     timestamps(type: :utc_datetime)
   end
@@ -19,17 +20,16 @@ defmodule Kemiskinan.Penduduks.Penduduk do
   def changeset(penduduk, attrs) do
     penduduk
     |> cast(attrs, [
-      :kode_unik,
       :nik,
       :nama,
       :tanggal_lahir,
       :jenis_kelamin,
       :kelurahan,
       :kecamatan,
-      :kota_kab
+      :kota_kab,
+      :nokk
     ])
     |> validate_required([
-      :kode_unik,
       :nik,
       :nama,
       :tanggal_lahir,

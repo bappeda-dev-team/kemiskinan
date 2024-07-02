@@ -11,6 +11,7 @@ defmodule Kemiskinan.Repo.Migrations.CreatePenduduks do
       add :kelurahan, :string
       add :kecamatan, :string
       add :kota_kab, :string
+      add :nokk, :string
 
       timestamps(type: :utc_datetime)
     end

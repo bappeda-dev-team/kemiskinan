@@ -19,7 +19,7 @@ defmodule KemiskinanWeb.PendudukLive.FormComponent do
         phx-change="validate"
         phx-submit="save"
       >
-        <.input field={@form[:kode_unik]} type="text" label="Kode unik" />
+        <.input field={@form[:nokk]} type="text" label="No. KK" />
         <.input field={@form[:nik]} type="text" label="NIK" />
         <.input field={@form[:nama]} type="text" label="Nama" />
         <.input field={@form[:tanggal_lahir]} type="date" label="Tanggal lahir" />
