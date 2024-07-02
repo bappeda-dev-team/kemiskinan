@@ -1,10 +1,14 @@
 import Config
 
+database_url =
+  System.get_env("DATABASE_URL") ||
+    raise """
+    environment variable DATABASE_URL is missing.
+    For example: ecto://USER:PASS@HOST/DATABASE
+    """
 # Configure your database
 config :kemiskinan, Kemiskinan.Repo,
-  username: "postgres",
-  password: "postgres",
-  hostname: "localhost",
+  url: database_url,
   database: "kemiskinan_dev",
   stacktrace: true,
   show_sensitive_data_on_connection_error: true,
