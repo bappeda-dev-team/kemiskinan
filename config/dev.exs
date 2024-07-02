@@ -2,10 +2,8 @@ import Config
 
 database_url =
   System.get_env("DATABASE_URL") ||
-    raise """
-    environment variable DATABASE_URL is missing.
-    For example: ecto://USER:PASS@HOST/DATABASE
-    """
+    "ecto://@localhost/kemiskinan_dev"
+
 # Configure your database
 config :kemiskinan, Kemiskinan.Repo,
   url: database_url,
