@@ -37,8 +37,8 @@ defmodule Kemiskinan.Penduduks.Penduduk do
       :kelurahan,
       :kecamatan,
       :kota_kab
-    ])
-    |> validate_length(:nik, is: 16)
+    ], message: "Tidak boleh kosong")
+    |> validate_format(:nik, ~r/^\d{16}?$/, message: "Format NIK Salah")
     |> unique_constraint(:nik)
     |> validate_inclusion(:jenis_kelamin, ["Laki-laki", "Perempuan"])
     |> generate_kode_unik(:kode_unik)
