@@ -25,11 +25,7 @@
     </:actions>
   </.header>
 
-  <.table
-    id="pertanyaans"
-    rows={@kuesioner.pertanyaans}
-    row_click={&JS.navigate(~p"/pertanyaans/#{&1}")}
-  >
+  <.table id="pertanyaans" rows={@kuesioner.pertanyaans}>
     <:col :let={pertanyaan} label="Kode"><%= pertanyaan.kode_pertanyaan %></:col>
     <:col :let={pertanyaan} label="Pertanyaan"><%= pertanyaan.pertanyaan %></:col>
     <:col :let={pertanyaan} label="Konsep"><%= pertanyaan.konsep %></:col>

@@ -15,4 +15,8 @@ defmodule KemiskinanWeb.PertanyaanHTML do
     for ket <- Kemiskinan.Keterangan.list_kuesioners(),
         do: [key: ket.jenis, value: ket.id]
   end
+
+  def get_kuesioner_id(changeset) do
+    Ecto.Changeset.get_field(changeset, :kuesioner_id)
+  end
 end

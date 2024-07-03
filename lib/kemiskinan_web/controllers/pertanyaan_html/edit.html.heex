@@ -1,8 +1,7 @@
 <.header>
-  Edit Pertanyaan <%= @pertanyaan.id %>
-  <:subtitle>Use this form to manage pertanyaan records in your database.</:subtitle>
+  Edit Pertanyaan
 </.header>
 
 <.pertanyaan_form changeset={@changeset} action={~p"/pertanyaans/#{@pertanyaan}"} />
 
-<.back navigate={~p"/pertanyaans"}>Back to pertanyaans</.back>
+<.back navigate={~p"/kuesioners/#{get_kuesioner_id(@changeset)}"}>Kembali</.back>
