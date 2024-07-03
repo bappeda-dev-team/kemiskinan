@@ -28,8 +28,7 @@ defmodule KemiskinanWeb.KuesionerController do
 
   def show(conn, %{"id" => id}) do
     kuesioner = Keterangan.get_kuesioner!(id)
-    pertanyaans = Keterangan.list_pertanyaan_kuesioner(id)
-    render(conn, :show, %{kuesioner: kuesioner, pertanyaans: pertanyaans})
+    render(conn, :show, %{kuesioner: kuesioner})
   end
 
   def edit(conn, %{"id" => id}) do

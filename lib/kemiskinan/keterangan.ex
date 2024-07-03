@@ -35,7 +35,10 @@ defmodule Kemiskinan.Keterangan do
       ** (Ecto.NoResultsError)
 
   """
-  def get_kuesioner!(id), do: Repo.get!(Kuesioner, id)
+  def get_kuesioner!(id) do
+    Repo.get!(Kuesioner, id)
+    |> Repo.preload(:pertanyaans)
+  end
 
   @doc """
   Creates a kuesioner.
