@@ -1,5 +1,5 @@
 <.header>
-  Kuesioner <%= @kuesioner.id %>
+  Kuesioner <%= @kuesioner.jenis %>
   <:subtitle>This is a kuesioner record from your database.</:subtitle>
   <:actions>
     <.link href={~p"/kuesioners/#{@kuesioner}/edit"}>
@@ -25,6 +25,7 @@
   </.header>
 
   <.table id="pertanyaans" rows={@pertanyaans} row_click={&JS.navigate(~p"/pertanyaans/#{&1}")}>
+    <:col :let={pertanyaan} label="Kode"><%= pertanyaan.kode_pertanyaan %></:col>
     <:col :let={pertanyaan} label="Pertanyaan"><%= pertanyaan.pertanyaan %></:col>
     <:col :let={pertanyaan} label="Konsep"><%= pertanyaan.konsep %></:col>
     <:col :let={pertanyaan} label="Metodologi"><%= pertanyaan.metodologi %></:col>

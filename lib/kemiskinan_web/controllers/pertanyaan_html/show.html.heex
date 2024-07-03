@@ -1,6 +1,5 @@
 <.header>
-  Pertanyaan <%= @pertanyaan.id %>
-  <:subtitle>This is a pertanyaan record from your database.</:subtitle>
+  Pertanyaan Kuesioner <%= @pertanyaan.kuesioner.jenis %>
   <:actions>
     <.link href={~p"/pertanyaans/#{@pertanyaan}/edit"}>
       <.button>Edit pertanyaan</.button>
@@ -9,6 +8,9 @@
 </.header>
 
 <.list>
+  <:item title="Kuesioner"><%= @pertanyaan.kuesioner.jenis %></:item>
+  <:item title="Tahun Kuesioner"><%= @pertanyaan.kuesioner.tahun %></:item>
+  <:item title="Kode Pertanyaan"><%= @pertanyaan.kode_pertanyaan %></:item>
   <:item title="Pertanyaan"><%= @pertanyaan.pertanyaan %></:item>
   <:item title="Konsep"><%= @pertanyaan.konsep %></:item>
   <:item title="Metodologi"><%= @pertanyaan.metodologi %></:item>

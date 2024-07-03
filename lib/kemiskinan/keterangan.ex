@@ -149,7 +149,10 @@ defmodule Kemiskinan.Keterangan do
       ** (Ecto.NoResultsError)
 
   """
-  def get_pertanyaan!(id), do: Repo.get!(Pertanyaan, id)
+  def get_pertanyaan!(id) do
+    Repo.get!(Pertanyaan, id)
+    |> Repo.preload(:kuesioner)
+  end
 
   @doc """
   Creates a pertanyaan.
