@@ -11,7 +11,7 @@ defmodule KemiskinanWeb.PertanyaanHTML do
 
   def pertanyaan_form(assigns)
 
-  def kuesioner_opts(changeset) do
+  def kuesioner_opts() do
     for ket <- Kemiskinan.Keterangan.list_kuesioners(),
         do: [key: ket.jenis, value: ket.id]
   end

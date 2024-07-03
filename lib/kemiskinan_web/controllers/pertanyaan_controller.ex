@@ -9,8 +9,8 @@ defmodule KemiskinanWeb.PertanyaanController do
     render(conn, :index, pertanyaans: pertanyaans)
   end
 
-  def new(conn, _params) do
-    changeset = Keterangan.change_pertanyaan(%Pertanyaan{})
+  def new(conn, %{"kuesioner_id" => kuesioner_id}) do
+    changeset = Keterangan.change_pertanyaan(%Pertanyaan{kuesioner_id: kuesioner_id})
     render(conn, :new, changeset: changeset)
   end
 
@@ -19,7 +19,7 @@ defmodule KemiskinanWeb.PertanyaanController do
       {:ok, pertanyaan} ->
         conn
         |> put_flash(:info, "Pertanyaan created successfully.")
-        |> redirect(to: ~p"/pertanyaans/#{pertanyaan}")
+        |> redirect(to: ~p"/kuesioners/#{pertanyaan.kuesioner_id}")
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, :new, changeset: changeset)
@@ -44,7 +44,7 @@ defmodule KemiskinanWeb.PertanyaanController do
       {:ok, pertanyaan} ->
         conn
         |> put_flash(:info, "Pertanyaan updated successfully.")
-        |> redirect(to: ~p"/pertanyaans/#{pertanyaan}")
+        |> redirect(to: ~p"/kuesioners/#{pertanyaan.kuesioner_id}")
 
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, :edit, pertanyaan: pertanyaan, changeset: changeset)

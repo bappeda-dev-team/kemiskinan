@@ -27,6 +27,8 @@ defmodule KemiskinanWeb.Router do
     live "/penduduks/:id/show/edit", PendudukLive.Show, :edit
 
     resources "/kuesioners", KuesionerController
+
+    get "/pertanyaans/new/:kuesioner_id", PertanyaanController, :new
     resources "/pertanyaans", PertanyaanController
   end
 
