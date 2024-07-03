@@ -115,6 +115,24 @@ defmodule Kemiskinan.Keterangan do
   """
   def list_pertanyaans do
     Repo.all(Pertanyaan)
+    |> Repo.preload(:kuesioner)
+  end
+
+  @doc """
+  Returns the list of pertanyaans by kuesioner id.
+
+  ## Examples
+
+      iex> list_pertanyaans()
+      [%Pertanyaan{}, ...]
+
+  """
+  def list_pertanyaan_kuesioner(id) do
+    query =
+      from p in Pertanyaan,
+        where: p.kuesioner_id == ^id
+
+    Repo.all(query)
   end
 
   @doc """
