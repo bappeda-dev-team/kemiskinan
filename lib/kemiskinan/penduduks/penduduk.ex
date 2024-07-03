@@ -14,6 +14,8 @@ defmodule Kemiskinan.Penduduks.Penduduk do
     field :nokk, :string
 
     timestamps(type: :utc_datetime)
+
+    has_many :respons, Kemiskinan.Survei.Respons
   end
 
   @doc false

@@ -2,8 +2,6 @@ defmodule Kemiskinan.Keterangan.Pertanyaan do
   use Ecto.Schema
   import Ecto.Changeset
 
-  alias Kemiskinan.Keterangan.Kuesioner
-
   schema "pertanyaans" do
     field :pertanyaan, :string
     field :konsep, :string
@@ -12,7 +10,9 @@ defmodule Kemiskinan.Keterangan.Pertanyaan do
 
     timestamps(type: :utc_datetime)
 
-    belongs_to :kuesioner, Kuesioner
+    belongs_to :kuesioner, Kemiskinan.Keterangan.Kuesioner
+
+    has_many :respons, Kemiskinan.Survei.Respons
   end
 
   @doc false

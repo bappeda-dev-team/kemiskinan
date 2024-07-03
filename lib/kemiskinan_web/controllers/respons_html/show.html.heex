@@ -1,0 +1,17 @@
+<.header>
+  Respons <%= @respons.id %>
+  <:subtitle>This is a respons record from your database.</:subtitle>
+  <:actions>
+    <.link href={~p"/respons/#{@respons}/edit"}>
+      <.button>Edit respons</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Responden"><%= @respons.penduduk.nama %></:item>
+  <:item title="Pertanyaan"><%= @respons.pertanyaan.pertanyaan %></:item>
+  <:item title="Respons"><%= @respons.respons %></:item>
+</.list>
+
+<.back navigate={~p"/respons"}>Back to respons</.back>

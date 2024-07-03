@@ -1,0 +1,25 @@
+<.header>
+  Listing Respons
+  <:actions>
+    <.link href={~p"/respons/new"}>
+      <.button>New Respons</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.table id="respons" rows={@respons_collection} row_click={&JS.navigate(~p"/respons/#{&1}")}>
+  <:col :let={respons} label="Responden"><%= respons.penduduk.nama %></:col>
+  <:col :let={respons} label="Pertanyaan"><%= respons.pertanyaan.pertanyaan %></:col>
+  <:col :let={respons} label="Respons"><%= respons.respons %></:col>
+  <:action :let={respons}>
+    <div class="sr-only">
+      <.link navigate={~p"/respons/#{respons}"}>Show</.link>
+    </div>
+    <.link navigate={~p"/respons/#{respons}/edit"}>Edit</.link>
+  </:action>
+  <:action :let={respons}>
+    <.link href={~p"/respons/#{respons}"} method="delete" data-confirm="Are you sure?">
+      Delete
+    </.link>
+  </:action>
+</.table>

@@ -30,6 +30,8 @@ defmodule KemiskinanWeb.Router do
 
     get "/pertanyaans/new/:kuesioner_id", PertanyaanController, :new
     resources "/pertanyaans", PertanyaanController
+
+    resources "/respons", ResponsController
   end
 
   # Other scopes may use custom stacks.
